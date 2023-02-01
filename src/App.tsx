@@ -1,25 +1,77 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import CssBaseline from '@mui/material/CssBaseline';
+import Drawer from '@mui/material/Drawer';
+import AppBar from '@mui/material/AppBar';
+import Toolbar from '@mui/material/Toolbar';
+import Typography from '@mui/material/Typography';
+import Grid from '@mui/material/Grid';
+import Box from '@mui/material/Box';
+import List from '@mui/material/List';
+import ListItem from '@mui/material/ListItem';
+import ListItemButton from '@mui/material/ListItemButton';
+import ListItemIcon from '@mui/material/ListItemIcon';
+import ListItemText from '@mui/material/ListItemText';
+import { createTheme, ThemeProvider } from '@mui/material/styles';
+import Divider from '@mui/material/Divider';
+import InboxIcon from '@mui/icons-material/MoveToInbox';
+import MailIcon from '@mui/icons-material/Mail';
+import Avatar from '@mui/material/Avatar';
+import Container from '@mui/material/Container';
+
+const list = () => (
+  <Box
+    sx={{ width: 'auto'}}
+    role="presentation"
+  >
+<Grid
+  container
+  spacing={0}
+  direction="column"
+  alignItems="center"
+>
+    <Avatar alt="Remy Sharp" src="/Tina_bg.jpg" sx={{ width: 120, height: 120 }} style={{alignSelf: 'center'}}/>
+  </Grid>  
+    <List>
+      {['Inbox', 'Starred', 'Send email', 'Drafts'].map((text, index) => (
+        <ListItem key={text} disablePadding>
+          <ListItemButton>
+            <ListItemIcon>
+              {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
+            </ListItemIcon>
+            <ListItemText primary={text} />
+          </ListItemButton>
+        </ListItem>
+      ))}
+    </List>
+    <Divider />
+    <List>
+      {['All mail', 'Trash', 'Spam'].map((text, index) => (
+        <ListItem key={text} disablePadding>
+          <ListItemButton>
+            <ListItemIcon>
+              {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
+            </ListItemIcon>
+            <ListItemText primary={text} />
+          </ListItemButton>
+        </ListItem>
+      ))}
+    </List>
+  </Box>
+);
+
 
 function App() {
+const theme = createTheme();
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <ThemeProvider theme={theme}>
+       
+      <CssBaseline />
+      <Drawer variant="permanent">
+        {list()}
+      </Drawer>
+      
+    </ThemeProvider>
   );
 }
 
