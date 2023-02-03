@@ -30,6 +30,15 @@ const list = () => (
   alignItems="center"
 >
     <Avatar alt="Remy Sharp" src="/Tina_bg.jpg" sx={{ width: 120, height: 120 }} style={{alignSelf: 'center'}}/>
+    <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
+          Tina Thomas 
+    </Typography>
+    <Typography sx={{ fontSize: 16 }} color="text.primary" gutterBottom>
+      Application Developer
+    </Typography>
+    <Typography sx={{ fontSize: 10 }} color="text.primary" gutterBottom>
+      Senior consultant
+    </Typography>
   </Grid>  
     <List>
       {['Inbox', 'Starred', 'Send email', 'Drafts'].map((text, index) => (
