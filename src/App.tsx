@@ -41,7 +41,7 @@ const list = () => (
     </Typography>
   </Grid>  
     <List>
-      {['Inbox', 'Starred', 'Send email', 'Drafts'].map((text, index) => (
+      {['Overview', 'Experience', 'Projects', 'Education'].map((text, index) => (
         <ListItem key={text} disablePadding>
           <ListItemButton>
             <ListItemIcon>
@@ -53,18 +53,7 @@ const list = () => (
       ))}
     </List>
     <Divider />
-    <List>
-      {['All mail', 'Trash', 'Spam'].map((text, index) => (
-        <ListItem key={text} disablePadding>
-          <ListItemButton>
-            <ListItemIcon>
-              {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-            </ListItemIcon>
-            <ListItemText primary={text} />
-          </ListItemButton>
-        </ListItem>
-      ))}
-    </List>
+
   </Box>
 );
 
