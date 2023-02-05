@@ -13,6 +13,7 @@ jobs:
       - run: yarn install
       - run: yarn build
       - run: ls build
+      - run: git fetch
       - run: git checkout build
       - run: rm -rf static/
       - run: mv build/* .
