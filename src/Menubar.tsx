@@ -28,7 +28,7 @@ const list = () => (
           Tina Thomas 
     </Typography>
     <Typography sx={{ fontSize: 16 }} color="white" gutterBottom>
-      Application Developer
+      Application Dev
     </Typography>
     <Typography sx={{ fontSize: 10 }} color="white" gutterBottom>
       Senior consultant
