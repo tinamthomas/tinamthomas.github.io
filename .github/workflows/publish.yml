@@ -14,7 +14,7 @@ jobs:
       - run: yarn build
       - run: ls build
       - run: git fetch
-      - run: git checkout build
+      - run: git checkout pages
       - run: rm -rf static/
       - run: mv build/* .
       - run: git add static/ index.html manifest.json asset-manifest.json robots.txt
