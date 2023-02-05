@@ -1,0 +1,21 @@
+name: publish-to-github-pages-branch
+on: [push]
+jobs:
+  build-and-publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+      - run: git config --global user.name 'Tina Thomas'
+      - run: git config --global user.email 'tina-thomas@users.noreply.github.com'
+      - run: yarn install
+      - run: yarn build
+      - run: ls build
+      - run: git checkout build
+      - run: rm -rf static/
+      - run: mv build/* .
+      - run: git add static/ index.html manifest.json asset-manifest.json robots.txt
+      - run: git commit -m "Updated version"
+      - run: git push origin build
