@@ -3,12 +3,14 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-
 import {
   createBrowserRouter,
   RouterProvider,
 } from "react-router-dom";
 import Overview from './Overview';
+import Experience from './Experience';
+import Projects from './Projects';
+import Education from './Education';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
@@ -22,6 +24,18 @@ const router = createBrowserRouter([
       {
         path: "overview",
         element: <Overview />,
+      },
+      {
+        path: "experience",
+        element: <Experience />,
+      },
+      {
+        path: "projects",
+        element: <Projects />,
+      },
+      {
+        path: "education",
+        element: <Education />,
       },
     ],
   },
