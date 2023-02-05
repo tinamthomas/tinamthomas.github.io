@@ -20,8 +20,8 @@ import Container from '@mui/material/Container';
 
 const list = () => (
   <Box
-    sx={{ width: 'auto'}}
-    role="presentation"
+    sx={{ width: 300, backgroundImage: 'linear-gradient(to right, #4287f5 , #123f87)', height: '100%'}}
+    
   >
 <Grid
   container
@@ -30,13 +30,13 @@ const list = () => (
   alignItems="center"
 >
     <Avatar alt="Remy Sharp" src="/Tina_bg.jpg" sx={{ width: 120, height: 120 }} style={{alignSelf: 'center'}}/>
-    <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
+    <Typography sx={{ fontSize: 14 }} color="white" gutterBottom>
           Tina Thomas 
     </Typography>
-    <Typography sx={{ fontSize: 16 }} color="text.primary" gutterBottom>
+    <Typography sx={{ fontSize: 16 }} color="white" gutterBottom>
       Application Developer
     </Typography>
-    <Typography sx={{ fontSize: 10 }} color="text.primary" gutterBottom>
+    <Typography sx={{ fontSize: 10 }} color="white" gutterBottom>
       Senior consultant
     </Typography>
   </Grid>  
