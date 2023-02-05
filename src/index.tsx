@@ -16,10 +16,8 @@ const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
 
-const router = createBrowserRouter([
-  {
-    path: "/",
-    element: <App />,
+const routesObj = {
+  element: <App />,
     children: [
       {
         path: "overview",
@@ -38,6 +36,16 @@ const router = createBrowserRouter([
         element: <Education />,
       },
     ],
+}
+
+const router = createBrowserRouter([
+  {
+    path: "/",
+    ...routesObj
+  },
+  {
+    path: "/overview",
+    ...routesObj
   },
 ]);
 
