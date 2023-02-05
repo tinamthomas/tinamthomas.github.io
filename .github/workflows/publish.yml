@@ -19,4 +19,4 @@ jobs:
       - run: mv build/* .
       - run: git add static/ index.html manifest.json asset-manifest.json robots.txt
       - run: git commit -m "Updated version"
-      - run: git push origin build
+      - run: git push origin pages
