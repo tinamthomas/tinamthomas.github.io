@@ -20,7 +20,7 @@ const theme = createTheme();
         </Box>
         <Box
           component="main"
-          sx={{ flexGrow: 1, p: 3, width: { sm: `calc(100% - 300px)` } }}
+          sx={{ flexGrow: 1, p: 3, width: { sm: `calc(100% - 500px )`} , pr: 50 }}
         >
           <Outlet/>
         </Box>
