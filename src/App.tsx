@@ -14,6 +14,7 @@ function App() {
   const handleDrawerToggle = () => {
     setMobileOpen(!mobileOpen);
   };
+  
   return (
     <Box sx={{ display: 'flex' }}>
       <CssBaseline />
@@ -42,7 +43,7 @@ function App() {
         sx={{ width: { sm: drawerWidth }, flexShrink: { sm: 0 }, }}
         aria-label="mailbox folders"
       >
-        <Menubar isMobile={mobileOpen} handleDrawerToggle/>
+        <Menubar isMobile={mobileOpen} handleDrawerToggle={handleDrawerToggle}/>
       </Box>
       <Box
         component="main"
