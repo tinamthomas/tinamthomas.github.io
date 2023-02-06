@@ -14,13 +14,13 @@ const theme = createTheme();
       <Box sx={{ display: 'flex' }}>
       <Box
           component="main"
-          sx={{ flexGrow: 0, p: 3, width: { sm: `300px` } }}
+          sx={{ flexGrow: 0, p: 3, width: { sm: `200px` } }}
         >
         <Menubar/>
         </Box>
         <Box
           component="main"
-          sx={{ flexGrow: 1, p: 3, width: { sm: `calc(100% - 500px )`} , pr: 50 }}
+          sx={{ flexGrow: 1, p: 3, width: { sm: `calc(100% - 200px )`} , pr: 20 }}
         >
           <Outlet/>
         </Box>

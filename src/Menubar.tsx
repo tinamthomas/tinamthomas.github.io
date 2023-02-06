@@ -15,7 +15,7 @@ import { Link } from "react-router-dom";
 
 const list = () => (
   <Box
-    sx={{ width: 300, backgroundImage: 'linear-gradient(to right, #4287f5 , #123f87)', height: '100%' , flexShrink: { sm: 0 }}}
+    sx={{ width: 200, backgroundImage: 'linear-gradient(to right, #4287f5 , #123f87)', height: '100%' , flexShrink: { sm: 0 }}}
   >
 <Grid
   container
