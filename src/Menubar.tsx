@@ -1,3 +1,4 @@
+import React from 'react';
 import MailIcon from '@mui/icons-material/Mail';
 import InboxIcon from '@mui/icons-material/MoveToInbox';
 import Avatar from '@mui/material/Avatar';
@@ -51,7 +52,11 @@ const list = () => (
   </Grid >
 );
 
-function Menubar() {
+interface IMenuBar {
+  isMobile: boolean
+  handleDrawerToggle: any
+}
+function Menubar(props: IMenuBar) {
 
   return (
     <Box
@@ -59,6 +64,20 @@ function Menubar() {
       sx={{ width: { sm: drawerWidth }, flexShrink: { sm: 0 } }}
       aria-label="mailbox folders"
     >
+      <Drawer
+        variant="temporary"
+        open={props.isMobile}
+        onClose={props.handleDrawerToggle}
+        ModalProps={{
+          keepMounted: true, // Better open performance on mobile.
+        }}
+        sx={{
+          display: { xs: 'block', sm: 'none' },
+          '& .MuiDrawer-paper': { boxSizing: 'border-box', width: '100px' },
+        }}
+      > 
+        {list()}
+      </Drawer>
       <Drawer
         variant="permanent"
         sx={{
@@ -68,20 +87,7 @@ function Menubar() {
         open>
         {list()}
       </Drawer>
-      <Drawer
-        variant="temporary"
-        open={true}
-        // onClose={handleDrawerToggle}
-        ModalProps={{
-          keepMounted: true, // Better open performance on mobile.
-        }}
-        sx={{
-          display: { xs: 'block', sm: 'none' },
-          '& .MuiDrawer-paper': { boxSizing: 'border-box', width: '100px' },
-        }}
-      >  hello
-        {list()}
-      </Drawer>
+
     </Box>
   );
 }
