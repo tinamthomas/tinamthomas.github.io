@@ -12,54 +12,77 @@ import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
 import Typography from '@mui/material/Typography';
 import { Link } from "react-router-dom";
-
+const drawerWidth = 240
 const list = () => (
-  <Box
-    sx={{ width: 200, backgroundImage: 'linear-gradient(to right, #4287f5 , #123f87)', height: '100%' , flexShrink: { sm: 0 }}}
-  >
-<Grid
-  container
-  spacing={0}
-  direction="column"
-  alignItems="center"
->
-    <Avatar alt="Remy Sharp" src="/Tina_bg.jpg" sx={{ width: 120, height: 120 }} style={{alignSelf: 'center'}}/>
-    <Typography sx={{ fontSize: 14 }} color="white" gutterBottom>
-          Tina Thomas 
-    </Typography>
-    <Typography sx={{ fontSize: 16 }} color="white" gutterBottom>
-      Application Dev
-    </Typography>
-    <Typography sx={{ fontSize: 10 }} color="white" gutterBottom>
-      Senior consultant
-    </Typography>
-  </Grid>  
+  <Grid>
+    <Grid
+      container
+      spacing={0}
+      direction="column"
+      alignItems="center"
+    >
+      <Avatar alt="Remy Sharp" src="/Tina_bg.jpg" sx={{ width: 120, height: 120 }} style={{ alignSelf: 'center' }} />
+      <Typography sx={{ fontSize: 14 }} color="white" gutterBottom>
+        Tina Thomas
+      </Typography>
+      <Typography sx={{ fontSize: 16 }} color="white" gutterBottom>
+        Application Dev
+      </Typography>
+      <Typography sx={{ fontSize: 10 }} color="white" gutterBottom>
+        Senior consultant
+      </Typography>
+    </Grid>
     <List>
       {['Overview', 'Experience', 'Projects', 'Education'].map((text, index) => (
-          <Link to={`${text}`}>
-        <ListItem key={text} disablePadding>
-          <ListItemButton>
-          
-            <ListItemIcon>
-              {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-            </ListItemIcon>
-            <ListItemText primary={text} />
-          </ListItemButton>
-        </ListItem>
-          </Link>
+        <Link to={`${text}`}>
+          <ListItem key={text} disablePadding>
+            <ListItemButton>
+
+              <ListItemIcon>
+                {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
+              </ListItemIcon>
+              <ListItemText primary={text} />
+            </ListItemButton>
+          </ListItem>
+        </Link>
       ))}
     </List>
     <Divider />
-
-  </Box>
+  </Grid >
 );
 
 function Menubar() {
 
   return (
-      <Drawer variant="permanent">
+    <Box
+      component="nav"
+      sx={{ width: { sm: drawerWidth }, flexShrink: { sm: 0 } }}
+      aria-label="mailbox folders"
+    >
+      <Drawer
+        variant="permanent"
+        sx={{
+          display: { xs: 'none', sm: 'block' },
+          '& .MuiDrawer-paper': { boxSizing: 'border-box', width: drawerWidth },
+        }}
+        open>
         {list()}
       </Drawer>
+      <Drawer
+        variant="temporary"
+        open={true}
+        // onClose={handleDrawerToggle}
+        ModalProps={{
+          keepMounted: true, // Better open performance on mobile.
+        }}
+        sx={{
+          display: { xs: 'block', sm: 'none' },
+          '& .MuiDrawer-paper': { boxSizing: 'border-box', width: '100px' },
+        }}
+      >  hello
+        {list()}
+      </Drawer>
+    </Box>
   );
 }
 export default Menubar;
